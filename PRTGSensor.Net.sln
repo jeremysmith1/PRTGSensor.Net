@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27004.2009
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PRTGSensor.Net", "PRTGSensor.Net\PRTGSensor.Net.csproj", "{159B1D91-6E2D-4E1C-989E-9CCBD87F492F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrtgSensorNet", "PRTGSensor.Net\PrtgSensorNet.csproj", "{159B1D91-6E2D-4E1C-989E-9CCBD87F492F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.PrtgSensorsNet", "Test.PRTGSensore.Net\Test.PrtgSensorsNet.csproj", "{63494CC1-C728-42AB-923F-2B822DA77896}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PRTGSensorNet.Example", "PRTGSensor.Net.Example\PRTGSensorNet.Example.csproj", "{8C80D737-F6FE-4238-A8C6-B66E341AE3C0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{159B1D91-6E2D-4E1C-989E-9CCBD87F492F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{159B1D91-6E2D-4E1C-989E-9CCBD87F492F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{159B1D91-6E2D-4E1C-989E-9CCBD87F492F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63494CC1-C728-42AB-923F-2B822DA77896}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63494CC1-C728-42AB-923F-2B822DA77896}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63494CC1-C728-42AB-923F-2B822DA77896}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63494CC1-C728-42AB-923F-2B822DA77896}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C80D737-F6FE-4238-A8C6-B66E341AE3C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C80D737-F6FE-4238-A8C6-B66E341AE3C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C80D737-F6FE-4238-A8C6-B66E341AE3C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C80D737-F6FE-4238-A8C6-B66E341AE3C0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
