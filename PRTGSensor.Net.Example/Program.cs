@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using PrtgSensorNet;
 using PrtgSensorNet.Model;
+using System;
 
 namespace PRTGSensorNet.Example
 {

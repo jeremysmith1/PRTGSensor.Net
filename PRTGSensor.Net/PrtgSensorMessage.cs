@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
@@ -8,9 +9,16 @@ using static System.Console;
 
 namespace PrtgSensorNet
 {
+
     [DataContract(Name = "prtg")]
     public class PrtgSensorMessage
     {
+        private JsonSerializerSettings _jsonSettings = new JsonSerializerSettings
+        {
+            Formatting = Formatting.None,
+            NullValueHandling = NullValueHandling.Ignore
+        };
+
         /// <summary>
         /// Single Message for Custom Sensor
         /// </summary>
@@ -43,12 +51,7 @@ namespace PrtgSensorNet
         /// Send Single PRTG Message
         /// </summary>
         /// <param name="message">PRTG Message</param>
-        public void SendPrtgMessage() => WriteLine(JsonConvert.SerializeObject(this,
-            Formatting.None,
-            new JsonSerializerSettings
-            {
-                NullValueHandling = NullValueHandling.Ignore
-            }));
+        public void SendPrtgMessage() => WriteLine(JsonConvert.SerializeObject(this, _jsonSettings));
 
         /// <summary>
         /// Send Collection of PRTG Messages
@@ -92,5 +95,33 @@ namespace PrtgSensorNet
         /// </summary>
         [DataMember(Name = "error", IsRequired = false, EmitDefaultValue = false)]
         public YesNoEnum Error { get; set; }
+
+        internal sealed class FormatNumbersAsTextConverter : JsonConverter
+        {
+            public override bool CanRead => false;
+            public override bool CanWrite => true;
+            public override bool CanConvert(Type type) => true;
+
+            public override void WriteJson(
+                JsonWriter writer, object value, JsonSerializer serializer)
+            {
+                if(value is Enum)
+                {
+                    var test = (int)value;
+                    serializer.Serialize(writer, test.ToString());
+                }
+                else
+                {
+                    serializer.Serialize(writer, value.ToString());
+
+                }
+            }
+
+            public override object ReadJson(
+                JsonReader reader, Type type, object existingValue, JsonSerializer serializer)
+            {
+                throw new NotSupportedException();
+            }
+        }
     }
 }
